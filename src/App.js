@@ -3,6 +3,7 @@ import './App.css';
 import ExpenseItem from './components/Expenses/ExpenseItem';
 import Expenses from './components/Expenses/Expenses';
 import React from 'react';
+import NewExpense from './components/NewExpenses/NewExpense';
 
 const App = () => {
 
@@ -32,6 +33,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <NewExpense/>
       <Expenses items={expenses} />
     </div>
   );
