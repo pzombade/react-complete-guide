@@ -2,27 +2,25 @@ import logo from './logo.svg';
 import './App.css';
 import ExpenseItem from './components/Expenses/ExpenseItem';
 import Expenses from './components/Expenses/Expenses';
-import React, {useState} from 'react';
 import NewExpense from './components/NewExpenses/NewExpense';
-import ExpensesFilter from './components/Expenses/ExpensesFilter';
+import { useState } from 'react';
 
 const App = () => {
   
   const [expenses, setExpenses] = useState(loadExpenses());
 
-  const yearChangeHandler = (event) => {
-    const expArr = loadExpenses().filter(item =>{
-     return item.date.getFullYear().toString() === event;
-    } );
-    setExpenses(expArr);
-    
-  };
+    const yearChangeHandler = (event) => {      
+        const expArr = loadExpenses().filter(item =>{
+            return item.date.getFullYear().toString() === event;
+        } );
+        setExpenses(expArr);
+
+    };
 
   return (
     <div className="App">
-      <NewExpense/>
-      <ExpensesFilter onYearChange={yearChangeHandler}/>
-      <Expenses items={expenses} />
+      <NewExpense/>     
+      <Expenses items={expenses} onYearChange={yearChangeHandler}/>
     </div>
   );
 
