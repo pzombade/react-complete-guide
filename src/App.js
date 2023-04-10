@@ -31,10 +31,18 @@ const App = () => {
 
   // return React.createElement('div',{className: 'App'}, React.createElement(Expenses, {items: expenses}));
 
+    const onNewFormDataHandler = (data)=>{
+      data = {...data};
+      data.date = new Date(data.date);
+      setExpenses((prevState)=>{
+        return [data, ...prevState];
+      });
+  };
+
   return (
     <div className="App">
-      <NewExpense/>
-      <Expenses items={expenses} />
+      <NewExpense setNewFormData={onNewFormDataHandler}/>     
+      <Expenses items={expenses} onYearChange={yearChangeHandler}/>
     </div>
   );
 }

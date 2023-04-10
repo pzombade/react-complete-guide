@@ -1,10 +1,15 @@
 import ExpenseForm from "./ExpenseForm";
 import './NewExpense.css'
 
-const NewExpense = () => {
+const NewExpense = (props) => {
+
+    const onNewFormDataHandler = (data)=>{
+        props.setNewFormData(data);
+    };
+
     return (
         <div className="new-expense">
-           <ExpenseForm />
+           <ExpenseForm setNewFormData={onNewFormDataHandler} />
         </div>
     );
 };
