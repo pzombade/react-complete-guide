@@ -24,7 +24,7 @@ const Expenses = (props) => {
     return (
         <Card className="expenses">
             <ExpensesFilter onYearChange={yearChangeHandler}/>
-            {expenseContnet};
+            {expenseContnet}
      </Card>
     );
 }
