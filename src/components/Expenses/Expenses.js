@@ -13,12 +13,18 @@ const Expenses = (props) => {
         props.onYearChange(event);
     };
 
+    let expenseContnet = <p>No expenses available.</p>
+
+    if(props.items.length > 0){
+        expenseContnet = props.items.map((item,index)=>{
+            return <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date} />
+         });
+    }
+
     return (
         <Card className="expenses">
             <ExpensesFilter onYearChange={yearChangeHandler}/>
-            {props.items.map((item,index)=>{
-               return <ExpenseItem key={item.id} title={item.title} amount={item.amount} date={item.date} />
-            })};
+            {expenseContnet};
      </Card>
     );
 }
